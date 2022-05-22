@@ -1,15 +1,11 @@
-WhatsApp Business Platform Quick Start
-Welcome to your first step toward building awesome WhatsApp apps!
+# cloud api overview
 
-This project contains the code for a simple webhook you can use to get started using the WhatsApp Platform.
+make calls to Meta’s Graph API to send messages and Webhooks to receive events, such as messages and status updates. The Graph API is a form of Remote Procedure Call expressed over HTTP, where operations and their parameters are expressed using a combination of URL parameters, headers, and request body.
 
-The code here mirrors what is in our webhook set up guide, and may be used as the starting point for doing the WhatsApp Business Platform quick start tutorial.
+there is a limit to the rate of call . conf doc
 
-Additional Resources
-Interested in learning more about the WhatsApp Platform? Check out these resources:
+# getting started
 
-Webhook set up guide: The walkthrough for the code in this project.
+create a meta dec account and config a meta app for whatsapp
 
-Quick start tutorial: Build your first app by remixing this project and following our quick start tutorial.
-
-Documentation
+**very important** config the webhoock to receive modification 
