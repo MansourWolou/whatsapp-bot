@@ -6,15 +6,40 @@ const
   body_parser = require('body-parser'),
   app = express().use(body_parser.json()); // creates express http server
 
+
+
+app.use((req, res, next) => {
+  res.header("Content-Type: application/json");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+    return res.status(200).json({});
+  }
+  next();
+});
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {  
 
   // Parse the request body from the POST
   let body = req.body;
+  let msg = req.body.entry[0].changes[0].value.messages[0].text;
   
   // Check the Incoming webhook message
   console.log("Incoming webhook: " + JSON.stringify(req.body));
-  console.log( req.body.entry[0].changes[0].value.messages[0].text);
+  console.log( msg);
+  // si je recoi salut je repond salut
+  if(msg == "salut"){
+      //repondre salut bg
+  }else if(msg == "un mot clé"){// si je recoi un mot clé je met en place une action spé
+      // coder l'action spécifique
+  }else{// si je n'ai rien pu faire de tt ça j'envoi un message d'information
+      // envoyer le message template
+  }
+  
+  // pour dire que je suis un bot 
   // Validate the webhook
   if(req.body.object){
     res.sendStatus(200);
