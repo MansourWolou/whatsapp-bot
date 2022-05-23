@@ -10,14 +10,8 @@ const
 
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  res.header("Authorization: Bearer EAAGAGeR9ooIBAC06ZA9BvMIsLSp4ds0LrgmRMo00ZCEw5RtPSXB3u4nwXUvHT6DpZBHdl9xbxM5KM247HZAZCaKsSivLEcVhYuc0KZC6CETm21wtnHDRQ5a9yUC8gCR5QOPaKaZBzanTh16LqyZBUGaugxX4AcCv2pTVrg4di1LsP9T3rsVG0yWb52fBpLz2bf4xNSzRxs0mPxz8apxie5ch"
   );
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-    return res.status(200).json({});
-  }
   next();
 });
 // Accepts POST requests at /webhook endpoint
@@ -26,17 +20,32 @@ app.post('/webhook', (req, res) => {
   // Parse the request body from the POST
   let body = req.body;
   let msg = req.body.entry[0].changes[0].value.messages[0].text;
-  
+  let url = "https://graph.facebook.com/v13.0/104662018925720/messages";
+
   // Check the Incoming webhook message
   console.log("Incoming webhook: " + JSON.stringify(req.body));
   console.log( msg);
   // si je recoi salut je repond salut
   if(msg == "salut"){
       //repondre salut bg
+      console.log("salut bg");
   }else if(msg == "un mot clé"){// si je recoi un mot clé je met en place une action spé
       // coder l'action spécifique
   }else{// si je n'ai rien pu faire de tt ça j'envoi un message d'information
       // envoyer le message template
+      res.json(
+        {
+          messagin_product:"whatsapp",
+          recipient_type:"individual",
+          to:"+330629618670",
+          type: "template",
+          template:{
+            name:"intro",
+            langage:{code:"fr_FR"},
+           
+          }
+        }
+      )
   }
   
   // pour dire que je suis un bot 
