@@ -4,23 +4,26 @@ import { UpdateWawDto } from './dto/update-waw.dto';
 
 @Injectable()
 export class WawService {
-  create(createWawDto: CreateWawDto) {
-    return 'This action adds a new waw';
+  /**
+   * Connect to the BSP server
+   * @internal */
+  subscribeAppWaba() {
+    return;
   }
 
-  findAll() {
-    return `This action returns all waw`;
+  /**
+   *To send messages, you need to register the phone number you want to use
+   *
+   */
+  getPhoneWabId() {
+    return;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} waw`;
-  }
-
-  update(id: number, updateWawDto: UpdateWawDto) {
-    return `This action updates a #${id} waw`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} waw`;
+  /**
+   * REGISTER PHONE NUMBER
+   *
+   */
+  registerPhoneNumber() {
+    return 'Phone Number register for Wab';
   }
 }

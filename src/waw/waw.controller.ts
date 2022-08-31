@@ -1,13 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  /*   Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete, */
+} from '@nestjs/common';
 import { WawService } from './waw.service';
-import { CreateWawDto } from './dto/create-waw.dto';
+/* import { CreateWawDto } from './dto/create-waw.dto';
 import { UpdateWawDto } from './dto/update-waw.dto';
-
+ */
 @Controller('waw')
 export class WawController {
   constructor(private readonly wawService: WawService) {}
 
-  @Post()
+  /*  @Post()
   create(@Body() createWawDto: CreateWawDto) {
     return this.wawService.create(createWawDto);
   }
@@ -30,5 +38,5 @@ export class WawController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.wawService.remove(+id);
-  }
+  } */
 }
