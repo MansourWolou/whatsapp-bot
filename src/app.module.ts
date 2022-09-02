@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { WawModule } from './waw/waw.module';
 
 @Module({
-  imports: [WawModule],
   controllers: [AppController],
   providers: [AppService],
 })
