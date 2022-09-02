@@ -1,5 +1,5 @@
 import {
-  Controller,
+  Controller, Post,
   /*   Get,
   Post,
   Body,
