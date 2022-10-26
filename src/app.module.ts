@@ -6,5 +6,6 @@ import { WawModule } from './waw/waw.module';
 @Module({
   controllers: [AppController],
   providers: [AppService],
+  imports: [WawModule],
 })
 export class AppModule {}

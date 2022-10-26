@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { WawService } from './waw.service';
 import { WawController } from './waw.controller';
+import { WawService } from './waw.service';
 
 @Module({
   controllers: [WawController],
