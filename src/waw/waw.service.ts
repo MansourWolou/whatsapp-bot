@@ -20,6 +20,8 @@ export class WawService {
 
             // Respond with 200 OK and challenge token from the request
             console.log('WEBHOOK_VERIFIED');
+            console.log(challenge);
+            
             return challenge;
 
           } else {
