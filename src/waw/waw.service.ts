@@ -5,7 +5,7 @@ export class WawService {
     getHook() : string{
         return "this is a webhook oooo";
     }
-    setUpWebhook(mode: any,token: any,challenge: any,req:Request,res:Response){
+    setUpWebhook(mode: any,token: any,challenge: any){
         console.log(mode,token,challenge);
         
         /** UPDATE YOUR VERIFY TOKEN
