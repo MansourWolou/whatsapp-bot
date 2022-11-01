@@ -7,41 +7,22 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { AuthService } from './auth.service';
-import { LoginAuthDto } from './dto/login-auth.dto';
-import { RegisterAuthDto } from './dto/resgister-auth.dto';
+import { LoginUserDto } from './dto/login-auth.dto';
+import { RegisterUserDto } from './dto/resgister-auth.dto';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
-  login(@Body() createAuthDto: LoginAuthDto) {
-    return this.authService.login(createAuthDto);
+  @Post('login')
+  login(@Body() loginDto: LoginUserDto) {
+    return this.authService.login(loginDto);
   }
 
-  @Post()
-  register(@Body() createAuthDto: RegisterAuthDto) {
+  @Post('register')
+  register(@Body() createAuthDto: RegisterUserDto) {
     return this.authService.register(createAuthDto);
   }
-
-  /*  @Get()
-  findAll() {
-    return this.authService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.authService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update(+id, updateAuthDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.authService.remove(+id);
-  } */
 }

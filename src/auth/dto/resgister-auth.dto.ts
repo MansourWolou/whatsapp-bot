@@ -1,4 +1,10 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { LoginAuthDto } from './login-auth.dto';
+import { IntersectionType } from '@nestjs/mapped-types';
 
-export class RegisterAuthDto extends PartialType(LoginAuthDto) {}
+import { IsNotEmpty, IsString } from 'class-validator';
+import { LoginUserDto } from './login-auth.dto';
+
+export class RegisterUserDto extends IntersectionType(LoginUserDto) {
+  @IsNotEmpty()
+  @IsString()
+  readonly username: string;
+}
